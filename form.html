@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="form.css">
+</head>
+
+<body>
+    <table>
+        <form>
+            <tr>
+                <td class="leftColoumn">
+                    Name:
+                </td>
+                <td class="rightColoumn">
+                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Mobile No.:
+                </td>
+                <td class="rightColoumn">
+                    <input type="number" name="mobile" id="mobile" placeholder="Enter your phone number">
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Email:
+                </td>
+                <td class="rightColoumn">
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Gender:
+                </td>
+                <td class="rightColoumn">
+                    <input type="radio" name="gender" id="gender">Male
+                    <input type="radio" name="gender" id="gender">Female
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Date of Birth:
+                </td>
+                <td class="rightColoumn">
+                    <input type="date" name="dob" id="dob">
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Marital Status:
+                </td>
+                <td class="rightColoumn">
+                    <select name="marital" id="marital">
+                        <option value="unmarried">Unmarried</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Upload a picture:
+                </td>
+                <td class="rightColoumn">
+                    <input type="file" name="image">
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn" id="vspaceing"><br></td>
+                <td class="rihtColoumn" id="vspacing"><br></td>
+            </tr>
+            <tr>
+                <td class="leftColoumn" id="user">
+                    Username:
+                </td>
+                <td id="user" class="rightColoumn">
+                    <input type="text" name="username" id="username" placeholder="Choose a username">
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn">
+                    Password:
+                </td>
+                <td class="rightColoumn">
+                    <input type="password" name="password" id="password" placeholder="Choose a Password">
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn" id="vspaceing"><br></td>
+                <td class="rihtColoumn" id="vspacing"><br></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="leftColoumn">
+                    <input type="checkbox" name="declaretion">I have read the terms and conditions.
+                </td>
+            </tr>
+            <tr>
+                <td class="leftColoumn" id="vspaceing"><br></td>
+                <td class="rihtColoumn" id="vspacing"><br></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="submittd">
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                
+                    <input type="reset" name="reset" value="Reset">
+                </td>
+            </tr>
+        </form>
+    </table>
+</body>
+
+</html>
