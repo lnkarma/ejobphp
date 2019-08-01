@@ -1,6 +1,5 @@
 #submittd {
     text-align: center;
-    padding-bottom: 30px;
 }
 td {
     border: none;
@@ -9,12 +8,13 @@ td {
     padding-left: 30px;
 }
 table{
-    padding-top: 30px;
+    padding-top: 40px;
     margin: auto;
     margin-top: 3%;
     background: linear-gradient(-45deg, #3425AF, #C56CD6);
     border-radius: 25px;
     box-shadow:2px 2px 5px rgba(111, 103, 175, 0.582); 
+    padding-bottom: 40px;
 }
 body {
     height: 100vh;
@@ -42,15 +42,13 @@ input {
     padding-right: 30px;
     border: none;
     border-radius: 20px;
-    margin-right: 100%;
 }
 #submit, #reset {
     padding: 10px;
-    background: linear-gradient(90deg, rgb(199, 102, 255), white);
-    padding-left: 20px;
-    padding-right: 20px;
-    color: rgb(139, 0, 69);
-    font-weight: bold;
+    background: linear-gradient(90deg, #C56CD6, white);
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(21, 1, 175);
     font-size: 15px;
 }
 #gender {
