@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Swap without third variable</title>
+    <script>
+        a=12;
+        b=5;
+        document.write("Value of A is: " +a + "<br>");
+        document.write("Value of B is: " +b + "<br>");
+        document.write("Swapping..."+ "<br>");
+        if (b > a) {
+                a = b - a;
+                b = b - a;
+                a = a + b;
+            } else if (a > b) {
+                b = a - b;
+                a = a - b;
+                b = a + b;
+            }
+        document.write("Value of A is: " +a + "<br>");
+        document.write("Value of B is: " +b + "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
