@@ -10,49 +10,49 @@
 </head>
 
 <body>
-    <table>
-        <form>
+    <table border="1px">
+        <form name="f1" action="regSuccessful.html" onsubmit="return validate()">
             <tr>
                 <td class="leftColoumn">
                     Name:
                 </td>
                 <td class="rightColoumn">
-                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                    <input type="text" name="name" id="name" placeholder="Enter your name" onblur="validateName()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="nameSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Mobile No.:
                 </td>
                 <td class="rightColoumn">
-                    <input type="number" name="mobile" id="mobile" placeholder="Enter your phone number">
+                    <input type="number" name="mobile" id="mobile" placeholder="Enter your phone number" onblur="validateMobile()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="mobileSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Email:
                 </td>
                 <td class="rightColoumn">
-                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                    <input type="email" name="email" id="email" placeholder="Enter your email" onblur="validateEmail()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="emailSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Gender:
                 </td>
                 <td class="rightColoumn">
-                    <input type="radio" name="gender" id="gender">Male
-                    <input type="radio" name="gender" id="gender">Female
+                    <input type="radio" name="gender" id="gender" required>Male
+                    <input type="radio" name="gender" id="gender" required>Female
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="genderSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Date of Birth:
                 </td>
                 <td class="rightColoumn">
-                    <input type="date" name="dob" id="dob">
+                    <input type="date" name="dob" id="dob" onblur="validateDob()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="dobSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Marital Status:
@@ -65,15 +65,15 @@
                         <option value="widowed">Widowed</option>
                     </select>
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="maritalSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Upload a picture:
                 </td>
                 <td class="rightColoumn">
-                    <input type="file" name="image">
+                    <input type="file" name="image" onblur="validatePic()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="picSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn" id="vspaceing"><br></td>
                 <td class="rihtColoumn" id="vspacing"><br></td>
@@ -83,17 +83,17 @@
                     Username:
                 </td>
                 <td id="user" class="rightColoumn">
-                    <input type="text" name="username" id="username" placeholder="Choose a username">
+                    <input type="text" name="username" id="username" placeholder="Choose a username" onblur="validateUser()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="userSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Password:
                 </td>
                 <td class="rightColoumn">
-                    <input type="password" name="password" id="password" placeholder="Choose a Password">
+                    <input type="password" name="password" id="password" placeholder="Choose a Password" onblur="validatePsw()">
                 </td>
-            </tr>
+            </tr><tr><td colspan="2"><span id="pswSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn" id="vspaceing"><br></td>
                 <td class="rihtColoumn" id="vspacing"><br></td>
@@ -116,6 +116,101 @@
             </tr>
         </form>
     </table>
+    <script>
+        var valid=2;
+        function validate(){
+
+        }
+        function validateName(){
+            var name = document.getElementById('name').value;
+            if(name == ""){
+                document.getElementById('nameSpan').innerHTML="**Please enter your name";
+            }
+        }
+        function validateMobile(){
+            var mobile = document.getElementById('mobile').value;
+            if(mobile == ""){
+                valid=0;
+                document.getElementById('mobileSpan').innerHTML="**Please enter your mobile number";
+            }
+            else if(isNaN(mobile)){
+                valid=0;
+                document.getElementById('mobileSpan').innerHTML="**Mobile number should contain only numbers.";
+            }
+            else if(mobile.length != 10){
+                valid=0;
+                document.getElementById('mobileSpan').innerHTML="**Mobile number must be of 10 digits.";
+            }
+            else if((mobile.charAt(0) != 9) && (mobile.charAt(0) != 8) && (mobile.charAt(0) != 7) && (mobile.charAt(0) != 6)){
+                valid=0;
+                document.getElementById('mobileSpan').innerHTML="**Please enter a valid mobile number.";
+            }
+        }
+        function validateEmail(){                      
+            var email = document.getElementById('email').value;
+            if(email == ""){
+                valid=0;
+                document.getElementById('emailSpan').innerHTML="**Please enter your email";
+            }
+        }
+        function validateGender(){
+
+        }
+        function validateDob(){
+            var name = document.getElementById('dob').value;
+            if(name == ""){
+                valid=0;
+                document.getElementById('dobSpan').innerHTML="**Please enter your name";
+            }
+        }
+        function validateMarital(){
+
+        }
+        function validatePic(){
+
+        }
+        function validateUser(){
+            var user = document.getElementById('username').value;
+            if(user == ""){
+                valid=0;
+                document.getElementById('userSpan').innerHTML="**Please enter your username";
+            }
+            else if(mobile.length != 16){
+                valid=0;
+                document.getElementById('userSpan').innerHTML="**Username max length 16 characters";
+            }
+        }
+        function validatePsw(){
+            var psw = document.getElementById('password').value;
+            if(psw == ""){
+                valid=0;
+                document.getElementById('pswSpan').innerHTML="**Please enter your password";
+            }
+            else if(psw.length < 8){
+                valid=0;
+                document.getElementById('pswSpan').innerHTML="**Minimum length of password must be 8 characters";
+            }
+            else if(psw.search(/[(a-z)]/) == -1){
+                valid=0;
+                document.getElementById('pswSpan').innerHTML="**Password must contain one lowercase letter";
+            }
+            else if(psw.search(/[(A-Z)]/) == -1){
+                valid=0;
+                document.getElementById('pswSpan').innerHTML="**Password must contain one uppercase letter";
+            }
+            else if(psw.search(/[(0-9)]/) == -1){
+                valid=0;
+                document.getElementById('pswSpan').innerHTML="**Password must contain one number";
+            }else {
+                for(i=0; i<psw.length; i++){
+                    if(typeof psw.charAt(i) !== 'symbol'){
+                        valid=0;
+                        document.getElementById('pswSpan').innerHTML="**Password must contain one al";                        
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

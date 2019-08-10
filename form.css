@@ -13,7 +13,7 @@ table{
     margin-top: 3%;
     background: linear-gradient(-45deg, #3425AF, #C56CD6);
     border-radius: 25px;
-    box-shadow:2px 2px 5px rgba(111, 103, 175, 0.582); 
+    box-shadow:2px 2px 10px rgba(111, 103, 175, 0.582); 
     padding-bottom: 40px;
 }
 body {
@@ -48,10 +48,14 @@ input {
     background: linear-gradient(90deg, #C56CD6, white);
     padding-left: 30px;
     padding-right: 30px;
-    color: rgb(21, 1, 175);
+    color: rgba(21, 1, 175, 0.699);
+    font-weight: bold;
     font-size: 15px;
 }
 #gender {
     border: none;
     background-color: white;
+}
+span {
+    color: rgb(250, 148, 148);
 }
