@@ -19,7 +19,7 @@
                 <td class="rightColoumn">
                     <input type="text" name="name" id="name" placeholder="Enter your name" onblur="validateName()">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="nameSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="nameSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Mobile No.:
@@ -27,7 +27,7 @@
                 <td class="rightColoumn">
                     <input type="number" name="mobile" id="mobile" placeholder="Enter your phone number" onblur="validateMobile()">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="mobileSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="mobileSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Email:
@@ -35,7 +35,7 @@
                 <td class="rightColoumn">
                     <input type="email" name="email" id="email" placeholder="Enter your email" onblur="validateEmail()">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="emailSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="emailSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Gender:
@@ -44,7 +44,7 @@
                     <input type="radio" name="gender" id="gender" required>Male
                     <input type="radio" name="gender" id="gender" required>Female
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="genderSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="genderSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Date of Birth:
@@ -52,7 +52,7 @@
                 <td class="rightColoumn">
                     <input type="date" name="dob" id="dob" onblur="validateDob()">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="dobSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="dobSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Marital Status:
@@ -65,7 +65,7 @@
                         <option value="widowed">Widowed</option>
                     </select>
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="maritalSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="maritalSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Upload a picture:
@@ -73,10 +73,10 @@
                 <td class="rightColoumn">
                     <input type="file" name="image" onblur="validatePic()" id="pic">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="picSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="picSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn" id="vspaceing"><br></td>
-                <td class="rihtColoumn" id="vspacing"><br></td>
+                <td class="rightColoumn" id="vspacing"><br></td>
             </tr>
             <tr>
                 <td class="leftColoumn" id="user">
@@ -85,18 +85,18 @@
                 <td id="user" class="rightColoumn">
                     <input type="text" name="username" id="username" placeholder="Choose a username" onblur="validateUser()">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="userSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="userSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn">
                     Password:
                 </td>
                 <td class="rightColoumn">
-                    <input type="password" name="password" id="password" placeholder="Choose a Password" onblur="validatePsw()">
+                    <input type="password" name="password" id="password" placeholder="Choose a Password" onblur="validatePsw()" oninput="passwordComp()">
                 </td>
-            </tr><tr><td colspan="2"><span class="errSpan" id="pswSpan"></span></td></tr>
+            </tr><tr><td colspan="2"><span name="errSpan" id="pswSpan"></span></td></tr>
             <tr>
                 <td class="leftColoumn" id="vspaceing"><br></td>
-                <td class="rihtColoumn" id="vspacing"><br></td>
+                <td class="rightColoumn" id="vspacing"><br></td>
             </tr>
             <tr>
                 <td colspan="2" class="leftColoumn">
@@ -105,7 +105,7 @@
             </tr>
             <tr>
                 <td class="leftColoumn" id="vspaceing"><br></td>
-                <td class="rihtColoumn" id="vspacing"><br></td>
+                <td class="rightColoumn" id="vspacing"><br></td>
             </tr>
             <tr>
                 <td colspan="2" id="submittd">
@@ -131,9 +131,9 @@
                 validatePic();
                 validatePsw();
                 validateUser();
-                return false;
             if(valid == 0){
                 return false;
+                alert("Please 0");
             } else{
                 return true;
             }
@@ -250,41 +250,39 @@
         }
         function validatePsw(){
             var psw = document.getElementById('password').value;
-            var comp = 0;
             if(psw == ""){
                 valid=0;
                 document.getElementById('pswSpan').innerHTML="**Please enter your password";
                 document.getElementById('pswSpan').style.paddingLeft="30px"
-                return;
             }
             else if(psw.length < 8){
                 valid=0;
                 document.getElementById('pswSpan').innerHTML="**Minimum length of password must be 8 characters";
-                document.getElementById('pswSpan').style.paddingLeft="30px"
-                return;
+                document.getElementById('pswSpan').style.paddingLeft="30px";
+            }
+            else if(psw.length > 32){
+                valid=0;
+                document.getElementById('pswSpan').innerHTML="**Maximum length of password must be 32 characters";
+                document.getElementById('pswSpan').style.paddingLeft="30px";
             }
             else if(psw.search(/[(a-z)]/) == -1){
                 valid=0;
                 document.getElementById('pswSpan').innerHTML="**Password must contain one lowercase letter";
-                document.getElementById('pswSpan').style.paddingLeft="30px"
-                return;
+                document.getElementById('pswSpan').style.paddingLeft="30px";
             }
             else if(psw.search(/[(A-Z)]/) == -1){
                 valid=0;
                 document.getElementById('pswSpan').innerHTML="**Password must contain one uppercase letter";
-                document.getElementById('pswSpan').style.paddingLeft="30px"
-                return;
+                document.getElementById('pswSpan').style.paddingLeft="30px";
             }
             else if(psw.search(/[(0-9)]/) == -1){
                 valid=0;
                 document.getElementById('pswSpan').innerHTML="**Password must contain one number";
-                document.getElementById('pswSpan').style.paddingLeft="30px"
-                return;
+                document.getElementById('pswSpan').style.paddingLeft="30px";
             } else if((/^[A-Za-z0-9 ]+$/).test(psw)){
                 valid=0;
                 document.getElementById('pswSpan').innerHTML="**Password must contain one symbol";
-                document.getElementById('pswSpan').style.paddingLeft="30px"
-                return;
+                document.getElementById('pswSpan').style.paddingLeft="30px";
             } else {
                 document.getElementById('pswSpan').innerHTML="";
                 document.getElementById('pswSpan').style.paddingLeft="0px";
@@ -294,6 +292,7 @@
 
         function resetForm(){
             valid = 2;
+            
             document.getElementById('nameSpan').innerHTML="";
             document.getElementById('mobileSpan').innerHTML="";
             document.getElementById('emailSpan').innerHTML="";
@@ -313,6 +312,25 @@
             document.getElementById('userSpan').style.paddingLeft="0px";
             document.getElementById('pswSpan').style.paddingLeft="0px";
         }
+        
+        function passwordComp(){
+            var psw = document.getElementById('password').value;
+            var complex = 0;
+            if(psw == ""){
+                complex=0;
+            }
+            else {
+                if (psw.length <= 8) { 
+                    complex = psw.length;
+                } else{ complex = 8; }
+                if (psw.search(/[(a-z)]/) != -1) { complex++; } 
+                if (psw.search(/[(A-Z)]/) != -1) { complex++; } 
+                if (psw.search(/[(0-9)]/) != -1) { complex++; } 
+                if (!(/^[A-Za-z0-9 ]+$/).test(psw)) { complex++; }
+            }
+            document.getElementById('pswSpan').innerHTML=complex;
+            document.getElementById('pswSpan').style.paddingLeft="30px";
+        }                
     </script>
 </body>
 </html>

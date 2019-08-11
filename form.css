@@ -19,7 +19,7 @@ table{
 body {
     height: 100vh;
     color: white;
-    font-family: Helvetica;
+    font-family: sans-serif;
     background: linear-gradient(rgb(255, 255, 255), rgb(242, 227, 255))
 }
 
